@@ -34,6 +34,12 @@ function App() {
     setOpenDialog(false);
   };
 
+  const handleDeleteUser = (userId: number) => {
+    // Filter out the user with the given ID and update the state
+    const updatedUsers = users.filter((user) => user.id !== userId);
+    setUsers(updatedUsers);
+  };
+
   const handleAddUser = () => {
       const newUser: User = {
         id: users.length + 1, 
@@ -184,6 +190,17 @@ function App() {
                   <Typography variant="body2" color="textSecondary">
                     {user.status ? "Active" : "Inactive"}
                   </Typography>
+                </Grid>
+                <Grid item xs={11.5} sx={{display: 'flex', justifyContent: 'right'}}>
+                <Button
+                  variant="contained"
+                  sx={{ fontSize: 12, padding: '4px 8px' }}
+                  color="error" // Use "error" color for delete action
+                  onClick={() => handleDeleteUser(user.id)} // Call the deletion function
+                          >
+                      Delete
+                  
+                   </Button>
                 </Grid>
               </Grid>
             </Paper>
