@@ -12,7 +12,6 @@ interface User {
   phone: string;
   rating: number;
   status: string;
-  // Other properties...
 }
 
 function App() {
@@ -36,7 +35,6 @@ function App() {
   };
 
   const handleAddUser = () => {
-        // Create a new user object with the input values from the state
       const newUser: User = {
         id: users.length + 1, 
         name: newUserName, 
@@ -58,14 +56,11 @@ function App() {
       setNewRating(newRating);
       setNewStatus(newStatus);
 
-
-      // Add the new user to the existing user list
       setUsers([...users, newUser]);
       handleCloseDialog();
   };
 
   useEffect(() => {
-    // Fetch data when the component mounts
     fetch('http://localhost:5003/api/bog/users', {
       method: 'GET',
       headers: {
@@ -143,7 +138,7 @@ function App() {
                   onChange={(e, newValue) => setNewRating(newValue! * 2)}
                   
                 />
-              {/* Add more TextField components for other user properties */}
+
             </DialogContent>
             <DialogActions>
               <Button onClick={handleCloseDialog} color="primary">
