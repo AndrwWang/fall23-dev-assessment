@@ -1,0 +1,18 @@
+{
+  "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "^5.14.6",
+    "@mui/material": "^5.14.6",
+    "@mui/styles": "^5.14.6",
+    "concurrently": "^8.2.1"
+  },
+  "scripts": {
+    "postinstall": "concurrently yarn:postinstall:*",
+    "postinstall:backend": "cd backend/ && yarn install",
+    "postinstall:frontend": "cd frontend/ && yarn install",
+    "start": "concurrently yarn:start:*",
+    "start:backend": "cd backend && yarn dev",
+    "start:frontend": "cd frontend && yarn start"
+  }
+}

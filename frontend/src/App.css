@@ -1,0 +1,14 @@
+/* Add a class for the App component */
+.App {
+  background: lightblue; /* Set the background color */
+  padding: 16px; /* Add some padding for spacing */
+}
+
+/* Add styles for the user cards */
+.user-card {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
