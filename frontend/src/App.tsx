@@ -19,7 +19,6 @@ function App() {
   const [users, setUsers] = useState<User[]>([]);
   const [openDialog, setOpenDialog] = useState(false);
   const [newUserName, setNewUserName] = useState('');
-  const [tempNewUserName, setTempNewUserName] = useState(''); 
   const [newAvatar, setNewAvatar] = useState('');
   const [newHeroProject, setNewHeroProject] = useState('');
   const [newNotes, setNewNotes] = useState('');
@@ -84,20 +83,23 @@ function App() {
   return (
     <div className="App">
       <Grid container spacing={2} justifyContent="center" alignItems="center">
+      <Grid item xs={12} sx={{display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
       <Typography variant="h4" gutterBottom>
         HaHa Heroes Volunteers List
       </Typography>
-      <Button variant="contained" color="primary" onClick={handleOpenDialog}>
-            Add User
-      </Button>
+      </Grid>
       <Grid container spacing={2}>
-        {/* Buttons for adding and deleting */}
+        <Grid item xs={12} sx={{display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <Button variant="contained" color="success" onClick={handleOpenDialog}>
+            Add User
+        </Button>
+        </Grid>
         <Grid item xs={12}>
-  
           <Dialog open={openDialog} onClose={handleCloseDialog} fullWidth = {true}>
 
             <DialogTitle>Add New User</DialogTitle>
             <DialogContent sx={{display: "flex", flexDirection: "column", alignItems: "center"}}>
+              
               {/* Add form fields for user properties */}
               <TextField
                 label="Name"
@@ -152,7 +154,6 @@ function App() {
               </Button>
             </DialogActions>
           </Dialog>
-  
         </Grid>
         {users.map((user) => (
           <Grid item xs={10} md={9} lg={8} key={user.id} sx={{ margin: '0 auto' }}>
